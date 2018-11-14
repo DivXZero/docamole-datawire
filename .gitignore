@@ -1,0 +1,26 @@
+
+# --- Common ---
+.DS_Store
+thumbs.db
+
+# --- IDEs ---
+.vscode
+.idea
+*.iml
+out
+
+# --- Datawire ---
+.forge
+forge.yaml
+*~
+telepresence.log
+
+# --- Node ---
+node_modules
+bundle.js
+
+# --- Production secrets ---
+k8s/production.secrets.*
+
+# --- Whitelist ---
+!web/dist/index.html

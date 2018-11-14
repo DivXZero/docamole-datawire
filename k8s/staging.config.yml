@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: docamole
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: docamole-config
+  namespace: docamole
+data:
+  redis.host: "redis://redis.docamole.svc.cluster.local:6379"
+  db.host: "tcp://0.tcp.ngrok.io"
+  db.port: "15608"

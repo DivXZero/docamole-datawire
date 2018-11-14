@@ -1,0 +1,96 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{service.namespace}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{build.name}}
+  namespace: {{service.namespace}}
+  {%- if "endpoint" in build.profile %}
+  annotations:
+    getambassador.io/config: |
+      ---
+      apiVersion: ambassador/v0
+      kind: Mapping
+      name: {{build.name}}-mapping
+      prefix: {{build.profile.endpoint}}
+      service: {{build.name}}.{{service.namespace}}.svc.cluster.local
+      {%- if "weight" in build.profile %}
+      weight: {{build.profile.weight}}
+      {%- endif %}
+  {%- endif %}
+spec:
+  selector:
+    app: {{build.name}}
+  ports:
+    - name: {{build.name}}-http
+      port: 80
+      targetPort: http
+    - name: {{build.name}}-https
+      port: 443
+      targetPort: https
+  type: ClusterIP
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{build.name}}
+  namespace: {{service.namespace}}
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: {{build.name}}
+    spec:
+      containers:
+      - name: {{build.name}}
+        image: {{build.images["Dockerfile"]}}
+        imagePullPolicy: Always
+        env:
+          - name: RAILS_ENV
+            value: production
+          - name: NODE_ENV
+            value: production
+          - name: REDIS_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: {{service.namespace}}-config
+                key: redis.host
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: {{service.namespace}}-config
+                key: db.host
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: {{service.namespace}}-config
+                key: db.port
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: {{service.namespace}}-db
+                key: username
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{service.namespace}}-db
+                key: password
+        resources:
+          requests:
+            memory: 0.1G
+            cpu: 0.1
+          limits:
+            memory: {{build.profile.max_memory}}
+            cpu: {{build.profile.max_cpu}}
+        ports:
+        - name: http
+          containerPort: 80
+        - name: https
+          containerPort: 443

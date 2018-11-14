@@ -1,0 +1,56 @@
+2018-11-13 15:07:28,050 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-11-13 15:07:28,055 INFO supervisord started with pid 1
+2018-11-13 15:07:29,061 INFO spawned: 'thin' with pid 7
+2018-11-13 15:07:30,068 INFO success: thin entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-11-13 15:08:10,205 WARN received SIGTERM indicating exit request
+2018-11-13 15:08:10,207 INFO waiting for thin to die
+2018-11-13 15:08:10,250 INFO stopped: thin (exit status 0)
+2018-11-13 15:09:29,892 INFO Set uid to user 0 succeeded
+2018-11-13 15:09:29,898 INFO supervisord started with pid 1
+2018-11-13 15:09:30,905 INFO spawned: 'nginx' with pid 7
+2018-11-13 15:09:30,909 INFO spawned: 'thin' with pid 8
+2018-11-13 15:09:30,931 INFO exited: nginx (exit status 1; not expected)
+2018-11-13 15:09:31,935 INFO spawned: 'nginx' with pid 10
+2018-11-13 15:09:31,935 INFO success: thin entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-11-13 15:09:31,951 INFO exited: nginx (exit status 1; not expected)
+2018-11-13 15:09:33,956 INFO spawned: 'nginx' with pid 11
+2018-11-13 15:09:33,967 INFO exited: nginx (exit status 1; not expected)
+2018-11-13 15:09:36,977 INFO spawned: 'nginx' with pid 18
+2018-11-13 15:09:36,990 INFO exited: nginx (exit status 1; not expected)
+2018-11-13 15:09:37,991 INFO gave up: nginx entered FATAL state, too many start retries too quickly
+2018-11-13 15:16:03,412 INFO Set uid to user 0 succeeded
+2018-11-13 15:16:03,420 INFO supervisord started with pid 1
+2018-11-13 15:16:04,424 INFO spawned: 'nginx' with pid 7
+2018-11-13 15:16:04,428 INFO spawned: 'thin' with pid 8
+2018-11-13 15:16:05,459 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-11-13 15:16:05,460 INFO success: thin entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-11-13 15:18:20,888 WARN received SIGTERM indicating exit request
+2018-11-13 15:18:20,890 INFO waiting for nginx, thin to die
+2018-11-13 15:18:21,204 INFO stopped: thin (exit status 0)
+2018-11-13 15:18:21,295 INFO stopped: nginx (exit status 0)
+2018-11-13 15:19:38,581 INFO Set uid to user 0 succeeded
+2018-11-13 15:19:38,587 INFO supervisord started with pid 1
+2018-11-13 15:19:39,592 INFO spawned: 'nginx' with pid 8
+2018-11-13 15:19:39,596 INFO spawned: 'thin' with pid 9
+2018-11-13 15:19:40,612 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-11-13 15:19:40,612 INFO success: thin entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-11-13 15:35:03,051 INFO Set uid to user 0 succeeded
+2018-11-13 15:35:03,061 INFO supervisord started with pid 1
+2018-11-13 15:35:04,066 INFO spawned: 'nginx' with pid 7
+2018-11-13 15:35:04,069 INFO spawned: 'thin' with pid 8
+2018-11-13 15:35:05,095 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-11-13 15:35:05,095 INFO success: thin entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-11-13 15:37:36,595 WARN received SIGTERM indicating exit request
+2018-11-13 15:37:36,596 INFO waiting for nginx, thin to die
+2018-11-13 15:37:37,632 INFO stopped: thin (exit status 0)
+2018-11-13 15:37:37,725 INFO stopped: nginx (exit status 0)
+2018-11-14 01:49:36,752 INFO Set uid to user 0 succeeded
+2018-11-14 01:49:36,762 INFO supervisord started with pid 1
+2018-11-14 01:49:37,769 INFO spawned: 'nginx' with pid 8
+2018-11-14 01:49:37,778 INFO spawned: 'thin' with pid 9
+2018-11-14 01:49:38,797 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-11-14 01:49:38,797 INFO success: thin entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-11-14 01:51:06,251 WARN received SIGTERM indicating exit request
+2018-11-14 01:51:06,252 INFO waiting for nginx, thin to die
+2018-11-14 01:51:06,518 INFO stopped: thin (exit status 0)
+2018-11-14 01:51:06,602 INFO stopped: nginx (exit status 0)

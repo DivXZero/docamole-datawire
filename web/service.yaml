@@ -1,0 +1,22 @@
+{% set sanitized_branch = (branch or "dev").replace('/', '-') %}
+
+name: web
+namespace: docamole
+
+profiles:
+  stable:
+    endpoint: /
+    max_memory: 1G
+    max_cpu: 0.5
+  default: #dev profile
+    name: {{sanitized_branch}}
+    endpoint: {{sanitized_branch}}
+    max_memory: 0.5G
+    max_cpu: 0.5
+
+branches:
+  master: stable
+  dev/*: default
+
+requires:
+  - redis

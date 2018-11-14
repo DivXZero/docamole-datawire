@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres:11.1-alpine
+    restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    env_file:
+      - development.env
+
+  redis:
+    image: redis:5.0.1-alpine3.8
+    restart: always
+    ports:
+      - 6379:6379
+
+  web:
+    build: ./web
+    restart: always
+    volumes:
+      - ./web:/docamole-web
+    ports:
+      - 3000:80
+      - 3443:443
+      - 3035:3035
+    links:
+      - postgres:db
+    depends_on:
+      - redis
+    env_file:
+      - development.env
+
+volumes:
+  postgres:

@@ -1,0 +1,15 @@
+!!! 5
+%html
+  %head
+    %title DocamoleWeb
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+
+  %body
+    -# React root
+    #docamole-root
+
+    = yield
